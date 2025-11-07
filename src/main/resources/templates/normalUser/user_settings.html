@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  th:replace="normalUser/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is Settings Page</title>
+    
+</head>
+<body >
+
+    <section>
+      
+
+            
+        <div class="card mr-3">
+             
+            
+            <div class="card-body">
+             <div th:if="${session.message}" class="container text-center">
+             <div th:classappend="${session.message.type}" class="alert alert-" role="alert">
+                <span  th:text="${session.message.content}"></span>
+            </div>
+            </div>    
+                
+            <h1 class="text-center">Settings</h1>
+            
+                <div class="container-fluid text-center">
+                    <a href="" th:href="@{/user/user-settings/change-name}" class="btn btn-primary btn-lg mt-5 "> Change Your Name</a>
+                    <p></p>
+                    <a href="" th:href="@{/user/user-settings/change-password}" class="btn btn-warning btn-lg mt-3 mb-3"> Change Password</a>
+                    <p></p>
+                    <a href="" th:href="@{/user/contacts/import-vcf}" class="btn btn-primary btn-lg "> Import/Export contacts</a>
+                    
+
+                        
+
+                           
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <script>
+        $(document).ready(() => {
+            $('.item').removeClass('active');
+            $('#settings-link').addClass('active');
+        });
+    </script>
+    </section>
+    
+</body>
+</html>

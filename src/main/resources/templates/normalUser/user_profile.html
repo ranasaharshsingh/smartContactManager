@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  th:replace="normalUser/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is User Profile Page</title>
+</head>
+<body >
+
+    <section>
+        <div class="card mr-3" >
+
+            <div class="card1 mt-3  text-center" >
+
+                <div class="container text-center mt-2">
+                    <img class="contact_profile_img" style="width: 300px;height: 300px;" src="/img/contact.png"   alt="">
+                    <h3 class="mt-2" th:text="${user.name}"> </h3>
+                    
+                </div>
+                <div class="table ">
+
+                <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">#USERID</th>
+                    <td>CN<span th:text="${user.id}"></span></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">Role</th>
+                    <td><span th:text="${user.role}"></span></td>
+                    </tr>
+                    <tr>
+                    <th scope="row">E-mail</th>
+                    <td><span th:text="${user.email}"></span></td>
+                    
+                    </tr>
+                    <tr>
+                    <th scope="row">User Status</th>
+                    <td><span th:if="${user.enabled==true}">Active</span>
+                    <span th:unless="${user.enabled==true}">NOT ACTIVE</span>
+                    </td>                  
+                    </tr>
+                </tbody>
+                </table>
+                <p><span th:text="${user.about}"></span></p>
+                
+                
+                </form>
+                </div>
+                
+            </div>
+        </div>
+        <script>
+        $(document).ready(() => {
+            $('.item').removeClass('active');
+            $('#profile-link').addClass('active');
+        });
+    </script>
+    </section>
+    
+</body>
+</html>

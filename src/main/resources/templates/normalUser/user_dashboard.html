@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  th:replace="normalUser/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is About Page</title>
+</head>
+<body >
+
+<!-- ...existing code... -->
+
+<section>
+    <div class="card mr-3 mt-4">
+        <div class="card-body text-center">
+            <h1 class="mt-2">Welcome, <span th:text="${user.name}"></span>!</h1>
+            <p class="text-secondary">Store and manage your contacts securely on cloud.</p>
+            
+            <!-- Quick Stats -->
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-3">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <h5>Total Contacts</h5>
+                            <h2 th:text="${totalContacts}"></h2>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            
+            <!-- Navigation Buttons -->
+            <a th:href="@{/user/add-contact}" class="btn btn-success btn-lg mr-2 mt-2">Add Contact</a>
+            <a th:href="@{/user/show-contacts/0}" class="btn btn-primary btn-lg mt-2">View Contacts</a>
+            <a href="" th:href="@{/user/contacts/import-vcf}" class="btn btn-warning btn-lg ml-2 mt-2 "> Import/Export contacts</a>
+            <hr />
+            <div>
+                <div class="text-center">
+                <h3>Donate Us</h3>
+                <input type="text" id="payment_field" class="form-control" placeholder="Enter Amount Here!!" >
+                
+            </div>
+            <container class="text-center">
+                    <button class="btn btn-success btn-sm mt-2"  onclick="paymentStart()">PAY</button>
+                </container>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        $(document).ready(() => {
+            $('.item').removeClass('active');
+            $('#home-link').addClass('active');
+        });
+    </script>
+</section>
+
+<!-- ...existing code... -->
+    
+</body>
+</html>

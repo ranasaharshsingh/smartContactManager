@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  th:replace="normalUser/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is User Profile Page</title>
+    
+</head>
+<body >
+
+    <section>
+      
+
+            <h1 class="text-center">Settings</h1>
+            
+        <div class="card mr-3">
+             
+            
+            <div class="card-body">
+             <div th:if="${session.message}" class="container text-center">
+             <div th:classappend="${session.message.type}" class="alert alert-" role="alert">
+                <span  th:text="${session.message.content}"></span>
+            </div>
+            </div>    
+                
+
+                <div class="container-fluid">
+
+                    <div class="container mt-3" style="max-width: 500px;">
+                        <h3 class="mb-4 text-center">Change Your Name</h3>
+
+                        <form th:action="@{/user/user-settings/change-name}" method="post">
+
+                            <div class="form-group">
+                                <label for="newPassword">New Name</label>
+                                <input type="name" id="newName" name="newName" class="form-control" required >
+                            </div>
+    
+                            <a href="#" th:href="@{/user/user-settings}" class="btn btn-warning mt-3">Back</a>
+                            <button type="submit" class="btn btn-primary mt-3 ml-2">Update Name</button>
+                            <button type="reset" class="btn btn-danger mt-3 ml-2">Reset</button>
+                           </form>
+
+                           
+                    </div>
+
+                </div>
+            </div>
+        </div>
+         <script>
+        $(document).ready(() => {
+            $('.item').removeClass('active');
+            $('#settings-link').addClass('active');
+        });
+    </script>
+    </section>
+    
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  th:replace="normalUser/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is cONTACT dETAILS Page</title>
+</head>
+<body >
+
+    <section>
+        
+        <div class="card mr-3" >
+
+            <div class="card1 mt-3 text-center" th:if="${contact}">
+
+                <div class="container text-center mt-2">
+                    <img class="contact_profile_img" style="width: 300px;height: 300px;" src="" th:src="@{'/img/'+${contact.imageUrl}}"  alt="">
+                    <h3 class="mt-2" th:text="${contact.name}"> </h3>
+                    <h4>( <span th:text="${contact.nickName}">  </span> )</h4>
+                </div>
+                <div class="table">
+
+                <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">#ID</th>
+                    <td>CN<span th:text="${contact.customerId}"></span></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">Phone Number</th>
+                    <td><span th:text="${contact.phoneNumber}"></span></td>
+                    </tr>
+                    <tr>
+                    <th scope="row">E-mail</th>
+                    <td><span th:text="${contact.email}"></span></td>
+                    
+                    </tr>
+                    <tr>
+                    <th scope="row">work</th>
+                    <td><span th:text="${contact.work}"></span></td>                  
+                    </tr>
+                </tbody>
+                </table>
+                <p><span th:text="${contact.description}"></span></p>
+                
+                <!-- without sweet alert -->
+                <!-- <a th:href="@{'/user/show-contacts/contact/delete/'+${contact.customerId}}" class="btn btn-danger ">
+                                    Delete
+                                </a > -->
+
+                <!-- with  sweet alert -->
+                <a href="#" th:onclick="|deleteContact(${contact.customerId})|" class="btn btn-danger">
+                                    Delete
+                                </a>
+              <form th:action="@{'/user/update-contact/'+${contact.customerId}}" method="post">
+                    <button  type="submit" class="btn btn-primary mt-2">
+                                Edit
+                            </button>
+                            <p></p>
+                    <a href="#" th:href="@{/user/show-contacts/0}" class="btn btn-warning ">Back</a>
+                </form>
+                </div>
+                
+            </div>
+        <div class="nouser text-center text-danger " th:unless="${contact}">
+            <h2>Contact Not Available !!</h2>
+        </div>
+        </div>
+         <script>
+        $(document).ready(() => {
+            $('.item').removeClass('active');
+            $('#view-link').addClass('active');
+        });
+    </script>
+        
+    
+    </section>
+    
+</body>
+</html>
