@@ -29,8 +29,8 @@ public class EmailService {
         Session session = Session.getInstance(properties, new Authenticator(){
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                String username = "aitechtalks1@gmail.com";
-                 String password = "rvhl jpmg ccid hbpx";
+                String username = "";//enter the email to send otp
+                 String password = "";//enter the password or instance of password for sending mail
                 return new PasswordAuthentication(username, password);
             }
         });
