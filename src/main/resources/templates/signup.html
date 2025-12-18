@@ -29,24 +29,7 @@
                       <h2 class="text-center">Register Here !!</h2>
 
                       <form action="" th:action="@{/do_register}" method="post" th:object="${user}">
-
-                        <!-- nameField -->
-                        <div class="mb-2">
-                            <label for="name_field" class="form-label ">Name</label>
-                            <input 
-                            name="name" 
-                            class="form-control" 
-                            id="name_field" 
-                            aria-describedby="emailHelp"
-                            placeholder="Enter a valid name"
-                            th:value="${user.name}"
-                            required>
-
-                           
-                            
-                        </div>
-
-                        <!-- email Field -->
+                         <!-- email Field -->
                         <div class="mb-2 form-row">
                             <div class="col-9">
                                 
@@ -82,6 +65,23 @@
                             
                         </div>
 
+                        <!-- nameField -->
+                        <div class="mb-2">
+                            <label for="name_field" class="form-label ">Name</label>
+                            <input 
+                            name="name" 
+                            class="form-control" 
+                            id="name_field" 
+                            aria-describedby="emailHelp"
+                            placeholder="Enter a valid name"
+                            th:value="${user.name}"
+                            required>
+
+                           
+                            
+                        </div>
+
+                       
                        
                         <!-- Password Field -->
                         <div class="mb-2">

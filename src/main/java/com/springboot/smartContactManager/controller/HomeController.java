@@ -115,7 +115,7 @@ public class HomeController {
             ? "You must agree to the terms and conditions!"
             : "This email is already registered or another error occurred.";
         session.setAttribute("message",new Message(errorMessage,"alert-danger") );
-        return"signup";
+        return "signup";
 
        }
 
